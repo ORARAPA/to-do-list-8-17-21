@@ -1,4 +1,47 @@
 .TodoItem-todo.done{
-    color: red;
+    background-color: #4bc46c;
     text-decoration: line-through;
+}
+
+.TodoItem-todo{
+    border: 2px #dee1e6 solid;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    background-color: #ec5547;
+    font-size: 12pt;
+}
+
+.TodoItem-todo:hover {
+    background-color: #34A853; /* Green */
+    color: white;
+}
+
+
+input{
+    background-color: white;
+    padding: 7px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    border: 2px black solid;
+  }
+
+button{
+    background-color: transparent;
+    border: transparent;
+}
+
+.div-left {
+    float: left;
+}
+
+.div-right {
+    float:right;
+    text-align: right;
 }
