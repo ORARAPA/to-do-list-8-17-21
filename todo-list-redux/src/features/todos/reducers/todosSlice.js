@@ -31,11 +31,18 @@ const todosSlice = createSlice({
                text: action.payload,
                done: false, 
             });
-        }
+        },
+        ToggleTodo(state, action){
+            console.log(action);
+            const todo = state.entities[action.payload];
+            todo.done = !todo.done;
+            //todosAdapter.updateOne
+        },
     }
 })
 
 export const {AddTodo} = todosSlice.actions;
+export const {ToggleTodo} = todosSlice.actions;
 
 export default todosSlice.reducer;
 
