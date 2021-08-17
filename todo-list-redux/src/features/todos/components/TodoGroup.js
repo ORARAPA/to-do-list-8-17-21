@@ -1,15 +1,15 @@
 import TodoItem from "./TodoItem";
 import React from 'react';
-import{initialTodoList} from "../../../common/constants/constants"
-import{getAllTodoIds} from "../../../common/utils/utils"
+import {selectToDoIds} from "../reducers/todosSlice";
+import { useSelector } from "react-redux";
 
 function TodoGroup(){
+    const todoIds = useSelector(selectToDoIds);
     return (
         <div>
             {
-                getAllTodoIds(initialTodoList).map((id) => (
+                todoIds.map((id) => (
                     <TodoItem key={id} itemId={id} />
-                    
                 ))
             }
         </div>
