@@ -26,7 +26,8 @@ function TodoForm(){
                 value = {text}
                 onChange = {handleChange}
             />
-            <button onClick={handleAdd}>Add</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button className="buttonAdd" onClick={handleAdd}>Add</button>
         </div>
     );
     
