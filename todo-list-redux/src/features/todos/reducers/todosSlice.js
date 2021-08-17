@@ -10,12 +10,12 @@ const initialState = todosAdapter.getInitialState({
     entities: {
         1:{
             id:"1",
-            text: "hello",
+            text: "Do your homework",
             done: false,
         },
         2:{
             id:"2",
-            text: "hello again",
+            text: "Wash the dishes",
             done: false,
         },
     },
@@ -33,16 +33,18 @@ const todosSlice = createSlice({
             });
         },
         ToggleTodo(state, action){
-            console.log(action);
             const todo = state.entities[action.payload];
             todo.done = !todo.done;
-            //todosAdapter.updateOne
+        },
+        DeleteTodo(state, action){
+            todosAdapter.removeOne(state,action.payload);
         },
     }
 })
 
 export const {AddTodo} = todosSlice.actions;
 export const {ToggleTodo} = todosSlice.actions;
+export const {DeleteTodo} = todosSlice.actions;
 
 export default todosSlice.reducer;
 
