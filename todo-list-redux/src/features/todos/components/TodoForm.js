@@ -5,7 +5,6 @@ import {AddTodo} from "../reducers/todosSlice";
 import {useDispatch} from "react-redux";
 import { addTodo } from '../../apis/todos';
 import 'antd/dist/antd.css';
-import {Button} from 'antd';
 import { Input, Space } from 'antd';
 
 
@@ -35,6 +34,7 @@ function TodoForm(){
                 onChange = {(e) => setText(e.target.value)}
                 onSearch={handleAdd}
                 value={text}
+                style={{ width: 700 }}
             />
         </div>
     );

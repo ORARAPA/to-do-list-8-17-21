@@ -1,19 +1,32 @@
-import React from 'react';
+import {useState} from 'react';
 import {DeleteTodo, selectTodoById} from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import {ToggleTodo} from "../reducers/todosSlice";
 import "../styles/TodoItem.css";
 import { deleteTodo, updateTodo } from '../../apis/todos';
+import 'antd/dist/antd.css';
+import {ExclamationCircleOutlined, CheckCircleOutlined} from '@ant-design/icons';
+
 
 
 function TodoItem(props){
     const todo = useSelector(state => selectTodoById(state,props.itemId));
     const dispatch = useDispatch();
 
+    const icon = useState(setTheIcon());
+
     function handleClick(){
         updateTodo(props.itemId, {done: !todo.done}).then((response) => {
           dispatch(ToggleTodo(props.itemId))
         })
+    }
+
+    function setTheIcon(){
+      if(todo.done){
+        return <CheckCircleOutlined/>
+      }else{
+        return <ExclamationCircleOutlined/>
+      }
     }
 
     function handleClickDelete(event){
@@ -30,7 +43,8 @@ function TodoItem(props){
 
     const todoStatus = todo.done ? "done" : "";
 
-    return (<div className={`TodoItem-todo ${todoStatus}`} onClick ={handleClick}>
+
+    return (<div className={`TodoItem-todo ${todoStatus}`} onClick ={handleClick}><span className={`span ${todoStatus}`}>{icon}</span>
                 {todo.text}
                 <div className="div-right" onClick={handleClickDelete}>X</div>
             </div> ) 

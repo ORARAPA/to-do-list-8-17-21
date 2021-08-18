@@ -5,7 +5,7 @@
 
 .TodoItem-todo{
     border: 2px #dee1e6 solid;
-    width: 500px;
+    width: 600px;
     margin: auto;
     margin-bottom: 10px;
     text-align: left;
@@ -13,7 +13,7 @@
     padding-right: 10px;
     border-radius: 12px;
     transition-duration: 0.4s;
-    background-color: #ec5547;
+    /*background-color: #ec5547;*/
     font-size: 12pt;
 }
 
@@ -44,4 +44,14 @@ button{
 .div-right {
     float:right;
     text-align: right;
+}
+
+.span{
+    padding-right: 10px;
+    color:red;
+}
+
+.span.done{
+    padding-right: 10px;
+    color: black;
 }
