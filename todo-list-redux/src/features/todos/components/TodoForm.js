@@ -6,16 +6,12 @@ import {useDispatch} from "react-redux";
 import { addTodo } from '../../apis/todos';
 import 'antd/dist/antd.css';
 import {Button} from 'antd';
-import { Input } from 'antd';
+import { Input, Space } from 'antd';
 
 
 function TodoForm(){
     const [text,setText] = useState("");
     const dispatch = useDispatch();
-
-    function handleChange(event){
-        setText(event.target.value);
-    }
 
     function handleAdd(){
         if(text === ""){
@@ -28,11 +24,18 @@ function TodoForm(){
         }
     }
 
+    const { Search } = Input;
+
     return (
         <div className = "TodoForm">
-            <Input placeholder="Input a new todo item" value = {text} onChange = {handleChange}/>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <Button type="primary" shape="round" onClick={handleAdd}>Add</Button>
+            <Search
+                placeholder="Input a new todo item"
+                enterButton="Add"
+                size="medium"
+                onChange = {(e) => setText(e.target.value)}
+                onSearch={handleAdd}
+                value={text}
+            />
         </div>
     );
     
