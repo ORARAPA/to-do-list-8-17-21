@@ -15,8 +15,12 @@ function TodoForm(){
     }
 
     function handleAdd(){
-        dispatch(AddTodo(text));
-        setText("");
+        if(text === ""){
+            alert('Input todo is blank.')
+        }else{
+            dispatch(AddTodo(text));
+            setText("");
+        }
     }
 
     return (
