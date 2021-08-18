@@ -13,20 +13,12 @@ function TodoItem(props){
     const todo = useSelector(state => selectTodoById(state,props.itemId));
     const dispatch = useDispatch();
 
-    const icon = useState(setTheIcon());
+    const [icon,setIcon] = useState(<ExclamationCircleOutlined/>);
 
     function handleClick(){
         updateTodo(props.itemId, {done: !todo.done}).then((response) => {
           dispatch(ToggleTodo(props.itemId))
         })
-    }
-
-    function setTheIcon(){
-      if(todo.done){
-        return <CheckCircleOutlined/>
-      }else{
-        return <ExclamationCircleOutlined/>
-      }
     }
 
     function handleClickDelete(event){
