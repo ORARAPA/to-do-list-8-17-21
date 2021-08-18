@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 const todosAdapter = createEntityAdapter();
 const initialState = todosAdapter.getInitialState({
-    ids: ["1","2"],
     //ids: initialTodoList.map(item => item.id),
     //entities: initialTodoList,
+    ids: ["1","2"],
     entities: {
         1:{
             id:"1",
@@ -36,13 +36,16 @@ const todosSlice = createSlice({
             todo.done = !todo.done;
         },
         DeleteTodo(state, action){
-            todosAdapter.removeOne(state,action.payload);
+            todosAdapter.removeOne(state,action);
         },
+        AddTodos(state,action){
+            todosAdapter.addMany(state,action);
+        }
         
     }
 })
 
-export const {AddTodo, ToggleTodo, DeleteTodo} = todosSlice.actions;
+export const {AddTodo, ToggleTodo, DeleteTodo, AddTodos} = todosSlice.actions;
 
 export default todosSlice.reducer;
 
