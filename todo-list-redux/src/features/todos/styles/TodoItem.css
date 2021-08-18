@@ -1,6 +1,5 @@
 .TodoItem-todo.done{
     background-color: #4bc46c;
-    text-decoration: line-through;
 }
 
 .TodoItem-todo{

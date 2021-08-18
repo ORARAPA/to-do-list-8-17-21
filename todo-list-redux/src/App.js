@@ -28,7 +28,7 @@ function App() {
             <Route path="*" component={NotFoundPage}></Route>
           </Switch>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center', paddingTop: 300 }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>
     </BrowserRouter>
       
