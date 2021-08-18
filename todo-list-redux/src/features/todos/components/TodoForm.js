@@ -3,6 +3,10 @@ import { useState } from "react";
 import "../styles/TodoForm.css";
 import {AddTodo} from "../reducers/todosSlice";
 import {useDispatch} from "react-redux";
+import { addTodo } from '../../apis/todos';
+import 'antd/dist/antd.css';
+import {Button} from 'antd';
+import { Input } from 'antd';
 
 
 function TodoForm(){
@@ -11,27 +15,24 @@ function TodoForm(){
 
     function handleChange(event){
         setText(event.target.value);
-        console.log(event.target.value);
     }
 
     function handleAdd(){
         if(text === ""){
             alert('Input todo is blank.')
         }else{
-            dispatch(AddTodo(text));
+            addTodo(text).then(
+                dispatch(AddTodo(text))
+            );
             setText("");
         }
     }
 
     return (
         <div className = "TodoForm">
-            <input type="text" 
-                placeholder = "Input a new todo item"
-                value = {text}
-                onChange = {handleChange}
-            />
+            <Input placeholder="Input a new todo item" value = {text} onChange = {handleChange}/>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <button className="buttonAdd" onClick={handleAdd}>Add</button>
+            <Button type="primary" shape="round" onClick={handleAdd}>Add</Button>
         </div>
     );
     
