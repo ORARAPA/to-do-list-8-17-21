@@ -2,34 +2,32 @@ import { createSlice, createEntityAdapter, createSelector } from "@reduxjs/toolk
 import { v4 as uuidv4 } from 'uuid';
 
 const todosAdapter = createEntityAdapter();
-const initialState = todosAdapter.getInitialState({
-    //ids: initialTodoList.map(item => item.id),
-    //entities: initialTodoList,
-    ids: ["1","2"],
-    entities: {
-        1:{
-            id:"1",
-            text: "Do your homework",
-            done: false,
-        },
-        2:{
-            id:"2",
-            text: "Wash the dishes",
-            done: false,
-        },
-    },
-});
+const initialState = todosAdapter.getInitialState(
+    // {
+    // //ids: initialTodoList.map(item => item.id),
+    // //entities: initialTodoList,
+    // ids: ["1","2"],
+    // entities: {
+    //     1:{
+    //         id:"1",
+    //         text: "Do your homework",
+    //         done: false,
+    //     },
+    //     2:{
+    //         id:"2",
+    //         text: "Wash the dishes",
+    //         done: false,
+    //     },
+    // },
+    // }
+);
 
 const todosSlice = createSlice({
     name:"todos",
     initialState: initialState,
     reducers: {
         AddTodo(state, action){
-            todosAdapter.addOne(state,{
-               id: uuidv4(),
-               text: action.payload,
-               done: false, 
-            });
+            todosAdapter.addOne(state,action.payload);
         },
         ToggleTodo(state, action){
             const todo = state.entities[action.payload];

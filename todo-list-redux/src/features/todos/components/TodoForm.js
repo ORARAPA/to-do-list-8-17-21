@@ -16,8 +16,8 @@ function TodoForm(){
         if(text === ""){
             alert('Input todo is blank.')
         }else{
-            addTodo(text).then(
-                dispatch(AddTodo(text))
+            addTodo(text).then((response) =>
+                dispatch(AddTodo(response.data))
             );
             setText("");
         }
