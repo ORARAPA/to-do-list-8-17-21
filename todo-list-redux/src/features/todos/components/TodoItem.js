@@ -4,7 +4,7 @@ import {ToggleTodo} from "../reducers/todosSlice";
 import "../styles/TodoItem.css";
 import { deleteTodo, updateTodo } from '../../apis/todos';
 import 'antd/dist/antd.css';
-import {ExclamationCircleOutlined, CheckCircleOutlined} from '@ant-design/icons';
+import {ExclamationCircleOutlined, CheckCircleOutlined, DeleteOutlined, EditOutlined} from '@ant-design/icons';
 
 
 
@@ -37,8 +37,14 @@ function TodoItem(props){
                   {todoStatus=="done" ? <CheckCircleOutlined/> : <ExclamationCircleOutlined/>}
                 </span>
                 {todo.text}
-                <div className="div-right" onClick={handleClickDelete}>X</div>
-            </div> ) 
+                <div className="div-right" onClick={handleClickDelete}>
+                  <span className="span-edit">
+                    {todoStatus=="done" ? null :  <EditOutlined />}
+                  </span>
+                  <DeleteOutlined />
+                </div>
+            </div> 
+          ) 
 }
 
 
