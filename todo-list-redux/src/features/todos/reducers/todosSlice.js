@@ -38,12 +38,14 @@ const todosSlice = createSlice({
         },
         AddTodos(state,action){
             todosAdapter.addMany(state,action);
-        }
-        
+        },
+        UpdateTodo(state,action){
+            todosAdapter.updateOne(state,action);
+        },
     }
 })
 
-export const {AddTodo, ToggleTodo, DeleteTodo, AddTodos} = todosSlice.actions;
+export const {AddTodo, ToggleTodo, DeleteTodo, AddTodos, UpdateTodo} = todosSlice.actions;
 
 export default todosSlice.reducer;
 
